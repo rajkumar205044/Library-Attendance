@@ -1,0 +1,7 @@
+mysql-connector-python
+numpy
+pillow
+PyAutoGUI
+opencv-python
+threading2
+deepface

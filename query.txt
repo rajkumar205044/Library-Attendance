@@ -1,0 +1,42 @@
+create database library;
+
+create table admin(userid varchar(30) not null unique,
+password varchar(30) not null);
+insert into admin(userid,password) values("admin","kl");
+
+create table logs(date date not null, 
+regno bigint not null,
+intime time not null,
+outtime time
+);
+
+create table department(id int not null unique,
+name varchar(20) not null,
+year int not null,
+unique (name,year)
+);
+
+create table students(regno bigint not null unique, 
+name varchar(30) not null,
+department int not null,
+photo blob not null,
+status int not null DEFAULT '1'
+);
+ALTER TABLE students MODIFY COLUMN photo LONGBLOB;
+
+use library;
+show tables;
+SET SQL_SAFE_UPDATES = 0;
+
+select * from department;
+select * from students;
+select * from logs;
+insert into department(id,name,year) values(21205,"IT",2021);
+insert into students(regno,name,department) values("510921205045","sarath","21205");
+insert into logs(date,regno,intime) values(CURRENT_DATE,"510921205045",CURRENT_TIME);
+
+
+
+
+select * from logs where date between '2024-03-15' and '2024-03-15' ;
+update logs set outtime='23:23:23' where date='2024-03-15' and regno='510921205045';
